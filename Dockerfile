@@ -20,7 +20,8 @@ RUN USER=node && \
     mkdir -p /etc/fixuid && \
     printf "user: $USER\ngroup: $GROUP\n" > /etc/fixuid/config.yml
 
-RUN yarn global add @angular/cli@$NG_CLI_VERSION && rm -rf $(yarn cache dir)
+RUN yarn global add @angular/cli@$NG_CLI_VERSION && rm -rf $(yarn cache dir) && \
+    npm install -g firebase-tools
 
 USER node:node
 WORKDIR /home/node
